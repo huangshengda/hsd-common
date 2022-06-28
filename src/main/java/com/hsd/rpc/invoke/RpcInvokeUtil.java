@@ -13,9 +13,6 @@ public final class RpcInvokeUtil {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(RpcInvokeUtil.class);
 
-    private static final String MSG_1 = "call {} error";
-    private static final String MSG_2 = "call {} request={}, response={}";
-
     public static <Req, Resp> Resp safeRetryInvoke(SFunction<Req, Resp> method, Req req, int retryTimes, Resp defaultResp) {
         return safeRetryInvoke(method, req, retryTimes, null, defaultResp);
     }
@@ -88,13 +85,16 @@ public final class RpcInvokeUtil {
 
     private static <Resp, Req> Resp doInvokeInternal(Req req, String name, Supplier<Resp> supplier) {
         Resp resp = null;
+        long start = System.currentTimeMillis();
+        boolean ef = false;
         try {
             resp = supplier.get();
         } catch (Exception e) {
-            LOGGER.error(MSG_1, name, e);
+            ef = true;
+            LOGGER.error("call {} error", name, e);
             throw e;
         } finally {
-            LOGGER.info(MSG_2, name, toJSONString(req), toJSONString(resp));
+            LOGGER.info("call {} request={}, response={}, e={}, cost={}", name, toJSONString(req), toJSONString(resp), ef, System.currentTimeMillis() - start);
         }
         return resp;
     }
