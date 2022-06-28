@@ -3,6 +3,8 @@ package com.hsd.log.mock;
 import com.hsd.log.Log;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
+
 /**
  * 类注释
  *
@@ -13,7 +15,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class LogMockTestOne {
 
+    @Resource
+    private InnerClass innerClass;
+
     public void tt(){
+        innerClass.innerMethod();
+    }
+
+    @Log
+    @Component
+    public static class InnerClass{
+        public void innerMethod(){
+
+        }
 
     }
 
