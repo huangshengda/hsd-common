@@ -25,9 +25,9 @@ public class LogTest {
     @Test
     public void f(){
         logMockTest.f();
-        logMockTest.f("11");
-        logMockTest.f1();
-        System.out.println("finish");
+       // logMockTest.f("11");
+        // logMockTest.f1();
+        // System.out.println("finish");
     }
 
 }

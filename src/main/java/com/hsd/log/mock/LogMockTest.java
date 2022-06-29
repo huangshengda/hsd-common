@@ -11,16 +11,20 @@ import javax.annotation.Resource;
  * @author huangshengda
  * @date 2022-06-28 16:14
  */
-@Log
+//@Log
 @Component
 public class LogMockTest {
 
     @Resource
     private LogMockTestOne logMockTestOne;
+    @Resource
+    private LogMockTest logMockTest;
 
     // @Log
     public String f() {
+        //f();
         logMockTestOne.tt();
+        logMockTest.f("123");
         return "no arg, has result";
     }
 

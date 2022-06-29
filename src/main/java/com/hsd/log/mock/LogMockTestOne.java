@@ -11,7 +11,7 @@ import javax.annotation.Resource;
  * @author huangshengda
  * @date 2022-06-28 16:47
  */
-@Log
+//@Log
 @Component
 public class LogMockTestOne {
 
@@ -22,7 +22,7 @@ public class LogMockTestOne {
         innerClass.innerMethod();
     }
 
-    @Log
+    //@Log
     @Component
     public static class InnerClass{
         public void innerMethod(){
