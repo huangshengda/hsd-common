@@ -29,7 +29,7 @@ public abstract class AbstractAsyncBatchWriter<T> {
     private final Executor executor;
 
     public AbstractAsyncBatchWriter() {
-        this.executor = new ThreadPoolExecutor(2, 2, 10L,
+        this.executor = new ThreadPoolExecutor(2, 2, 0L,
                 TimeUnit.SECONDS, new LinkedBlockingQueue<>(), new NamedThreadFactory("batch-pack-"), new ThreadPoolExecutor.AbortPolicy());
         start();
     }
