@@ -1,4 +1,4 @@
-package com.hsd.common;
+package com.hsd.util;
 
 import java.util.*;
 import java.util.function.Function;

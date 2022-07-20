@@ -1,4 +1,4 @@
-package com.hsd.common;
+package com.hsd.util;
 
 import org.springframework.util.CollectionUtils;
 
