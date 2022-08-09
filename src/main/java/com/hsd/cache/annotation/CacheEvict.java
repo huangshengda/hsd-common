@@ -6,4 +6,10 @@ package com.hsd.cache.annotation;
  */
 public @interface CacheEvict {
 
+
+    /**
+     * 缓存中key
+     */
+    String key();
+
 }

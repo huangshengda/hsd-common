@@ -13,6 +13,21 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Cacheble {
+public @interface Cacheable {
+
+    /**
+     * 缓存中key
+     */
+    int keyIndex() default 0;
+
+    /**
+     * 过期时间 单位秒
+     */
+    int expireTimeSec() default 5;
+
+    /**
+     * 同步加入缓存
+     */
+    boolean syncAddCache() default false;
 
 }
