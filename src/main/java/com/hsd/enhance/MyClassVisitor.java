@@ -1,4 +1,4 @@
-package com.hsd.enhance.asm;
+package com.hsd.enhance;
 
 import jdk.internal.org.objectweb.asm.ClassVisitor;
 import jdk.internal.org.objectweb.asm.MethodVisitor;

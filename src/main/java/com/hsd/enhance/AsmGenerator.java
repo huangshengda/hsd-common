@@ -1,4 +1,4 @@
-package com.hsd.enhance.asm;
+package com.hsd.enhance;
 
 import jdk.internal.org.objectweb.asm.ClassReader;
 import jdk.internal.org.objectweb.asm.ClassVisitor;
@@ -7,12 +7,12 @@ import jdk.internal.org.objectweb.asm.ClassWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 
-public class Generator {
+public class AsmGenerator {
 
 
     public static void main(String[] args) throws Exception {
         //读取
-        ClassReader classReader = new ClassReader("com/hsd/enhance/asm/Base");
+        ClassReader classReader = new ClassReader("com/hsd/enhance/Base");
         ClassWriter classWriter = new ClassWriter(ClassWriter.COMPUTE_MAXS);
         //处理
         ClassVisitor classVisitor = new MyClassVisitor(classWriter);
